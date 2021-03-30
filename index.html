@@ -22,13 +22,12 @@
           :key="item"
           @click="setActive(idx)"
           >
-          <span>{{ idx + 1}}</span> {{ item.title }}
+          <span>{{ idx + 1 }}</span> {{ item.title }}
           </li>
         </ul>
         <div v-if="!isReseting">
           <button class="btn" :disabled="isFirstStep" @click="prev">Назад</button>
-          <button v-if="!isLastStep" class="btn primary" @click="nextOfFinish">Вперед</button>
-          <button v-else class="btn primary" @click="finish">Закончить</button>
+          <button class="btn primary" @click="nextOfFinish">{{ isLastStep ? 'Закончить' : 'Вперед' }}</button>
         </div>
         <div v-else>
           <button class="btn" @click="reset">Начать заново</button>
